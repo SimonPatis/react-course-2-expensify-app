@@ -1,0 +1,21 @@
+html {
+    font-size: 62.5%; /* Reduces base font-size to 10px to make working with rem quantities easier and relative */
+}
+
+body{
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: $m-size;
+}
+
+button{
+    cursor: pointer;
+}
+
+button:disabled{
+    cursor: default;
+}
+
+.is-active{
+    color: red;
+    font-weight: bold;
+}
