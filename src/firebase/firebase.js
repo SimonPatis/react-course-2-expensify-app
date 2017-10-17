@@ -17,11 +17,6 @@ export { firebase, database as default };
 
 
 
-
-
-
-
-
 // Firebase Reference
 
 // // child_removed - Event based
