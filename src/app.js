@@ -45,5 +45,3 @@ firebase.auth().onAuthStateChanged((user) => {
     }
 });
 
-console.log(firebase.app().options);
-
