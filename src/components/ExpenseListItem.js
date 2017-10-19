@@ -16,10 +16,10 @@ numeral.register('locale', 'en-gb', {
     },
     ordinal: function (number) {
         var b = number % 10;
-        return (~~ (number % 100 / 10) === 1) ? 'th' :
+        return (~~(number % 100 / 10) === 1) ? 'th' :
             (b === 1) ? 'st' :
-            (b === 2) ? 'nd' :
-            (b === 3) ? 'rd' : 'th';
+                (b === 2) ? 'nd' :
+                    (b === 3) ? 'rd' : 'th';
     },
     currency: {
         symbol: '£'
@@ -28,17 +28,16 @@ numeral.register('locale', 'en-gb', {
 
 numeral.locale('en-gb');
 
-const ExpenseListItem = ({ amount, createdAt, description, id}) => (
-    <div>
-        <Link to={`/edit/${id}`}>
-            <h3>{description}</h3>
-        </Link>
-        <p>
-            {numeral(amount / 100).format('$0,0.00')} 
-            - 
-            {moment(createdAt).format('MMMM Do YYYY')}
-        </p>
-    </div>
+const ExpenseListItem = ({ amount, createdAt, description, id }) => (
+    <Link className="list-item" to={`/edit/${id}`}>
+        <div>
+            <h3 className="list-item__title">{description}</h3>
+            <span className="list-item__subtitle">{moment(createdAt).format('MMMM Do YYYY')}</span>
+        </div>
+        <div>
+            <h3 className="list-item__data">{numeral(amount / 100).format('$0,0.00')}</h3>
+        </div>
+    </Link>
 );
 
 export default ExpenseListItem;
